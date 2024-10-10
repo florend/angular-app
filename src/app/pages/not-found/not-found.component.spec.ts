@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PostCardComponent } from './post-card.component';
+import { NotFoundComponent } from './not-found.component';
 
-describe('PostCardComponent', () => {
-    let component: PostCardComponent;
-    let fixture: ComponentFixture<PostCardComponent>;
+describe('NotFoundComponent', () => {
+    let component: NotFoundComponent;
+    let fixture: ComponentFixture<NotFoundComponent>;
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            imports: [PostCardComponent]
+            imports: [NotFoundComponent]
         }).compileComponents();
 
-        fixture = TestBed.createComponent(PostCardComponent);
+        fixture = TestBed.createComponent(NotFoundComponent);
         component = fixture.componentInstance;
         fixture.detectChanges();
     });

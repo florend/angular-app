@@ -5,9 +5,9 @@ import { Post } from '../../models/post.model';
     selector: 'app-post-card',
     standalone: true,
     imports: [],
-    templateUrl: './post-card.component.html',
-    styleUrl: './post-card.component.css'
+    templateUrl: './post-item.component.html',
+    styleUrl: './post-item.component.css'
 })
-export class PostCardComponent {
+export class PostItemComponent {
     @Input() post: Post = new Post();
 }

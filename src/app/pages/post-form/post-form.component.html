@@ -1,0 +1,42 @@
+<!-- @if (postId()) {
+<p>post id : {{ postId() }}</p>
+} @else {
+<p>post only</p>
+}
+<button (click)="next()">Next</button> -->
+
+<form [formGroup]="formGroup" (submit)="submit($event)">
+    <div class="form-field">
+        <label for="image">Image url</label>
+        <input id="image" name="image" type="text" formControlName="image" />
+        @if (isFieldValid('image')) {
+            @if (formGroup.get('image')?.hasError('required')) {
+                <div class="error">This field is required.</div>
+            }
+            @if (formGroup.get('image')?.hasError('pattern')) {
+                <div class="error">This field must be an url</div>
+            }
+        }
+        <label for="title">Title</label>
+        <input id="title" name="title" type="text" formControlName="title" />
+        @if (isFieldValid('title')) {
+            @if (formGroup.get('title')?.hasError('required')) {
+                <div class="error">This field is required.</div>
+            }
+            @if (formGroup.get('title')?.hasError('minLength')) {
+                <div class="error">This field requires at least 2 characters.</div>
+            }
+        }
+        <label for="body">Body</label>
+        <textarea id="body" name="body" type="text" formControlName="body"></textarea>
+        @if (isFieldValid('body')) {
+            @if (formGroup.get('body')?.hasError('required')) {
+                <div class="error">This field is required.</div>
+            }
+            @if (formGroup.get('body')?.hasError('minLength')) {
+                <div class="error">This field requires at least 2 characters.</div>
+            }
+        }
+    </div>
+    <button type="submit" [disabled]="formGroup.invalid">Save</button>
+</form>
