@@ -1,0 +1,14 @@
+<main>
+    @if (post) {
+        <div class="container">
+            <img src="{{ post.image }}" />
+            <p class="post-date">{{ post.date }}</p>
+            <h2>{{ post.title }}</h2>
+            <div [innerHTML]="post.body"></div>
+        </div>
+
+        <div>Post id : {{ post.id }}</div>
+    } @else {
+        <div>Post not found</div>
+    }
+</main>

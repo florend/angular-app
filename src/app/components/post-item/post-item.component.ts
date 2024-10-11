@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { Post } from '../../models/post.model';
 
 @Component({
-    selector: 'app-post-card',
+    selector: 'app-post-item',
     standalone: true,
     imports: [],
     templateUrl: './post-item.component.html',

@@ -1,6 +1,39 @@
 /* You can add global styles to this file, and also import other style files */
 body,
 html {
-    font-family: Roboto, sans-serif;
-    height: 100%;
+    margin: 0;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 1.125rem;
+    font-weight: 300;
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Lora', serif;
+    font-weight: 400;
+    color: #143774;
+}
+
+.post-date {
+    font-size: 0.875rem;
+}
+
+a {
+    color: #1792d2;
+}
+
+a:hover,
+a:focus {
+    color: #143774;
+}
+
+strong {
+    font-weight: 700;
+}
+
+.container {
+    width: 90%;
+    max-width: 900px;
+    margin: 0 auto;
 }

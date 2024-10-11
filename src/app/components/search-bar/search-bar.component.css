@@ -2,7 +2,8 @@
     display: flex;
     background-color: rgb(232, 232, 232);
     margin: 50px auto;
-    width: 400px;
+    width: 90%;
+    max-width: 400px;
     overflow: hidden;
 }
 

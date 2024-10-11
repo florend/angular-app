@@ -1,6 +1,4 @@
 #card {
-    display: block;
-    width: 900px;
 }
 
 #divider {
@@ -14,17 +12,27 @@
     padding: 30px 0px 30px 0px;
 }
 
+.post-row:hover {
+    cursor: pointer;
+}
+
+.post-row:hover a,
+.post-row:focus a {
+    color: #143774;
+    text-decoration: underline;
+}
+
 .post-content {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    padding-left: 10px;
+    padding-left: 1em;
 }
 
-#title {
-    font-size: 25px;
+h2 {
+    font-size: 1.5rem;
     font-weight: bold;
 }
 
@@ -32,11 +40,16 @@ figure#post-img {
     margin: 0;
     padding: 5px 5px 2px 5px;
     width: calc(20% - 10px);
-    background-color: black;
 
     img {
         width: 100%;
         height: 100px;
         object-fit: cover;
     }
+}
+
+.right a {
+    font-size: 0.875rem;
+    text-decoration: none;
+    padding: 0.25em 0;
 }
