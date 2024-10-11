@@ -6,8 +6,15 @@
         </div>
         <nav>
             <ul>
-                <li><a href="#" class="current-page">Home</a></li>
-                <li><a href="#">Something</a></li>
+                <li>
+                    <a
+                        routerLink="/"
+                        routerLinkActive="current-page"
+                        [routerLinkActiveOptions]="{ exact: true }"
+                        >Home</a
+                    >
+                </li>
+                <li><a routerLink="/post/add" routerLinkActive="current-page">Write a post</a></li>
                 <li><a href="#">Something2</a></li>
             </ul>
         </nav>

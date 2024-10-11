@@ -3,12 +3,6 @@ header {
     padding: 2em 0;
 }
 
-.container {
-    width: 90%;
-    max-width: 900px;
-    margin: 0 auto;
-}
-
 .container-nav {
     display: flex;
     justify-content: space-between;

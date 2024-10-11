@@ -4,13 +4,13 @@
         <figure id="post-img">
             <img src="{{ post.image }}" />
         </figure>
-        <div class="post-content">
+        <div class="post-content" (click)="postClick()">
             <div class="left">
                 <h2>{{ post.title }}</h2>
                 <p class="post-date">{{ post.date }}</p>
             </div>
             <div class="right">
-                <a href="#">READ MORE</a>
+                <a>READ MORE</a>
             </div>
         </div>
     </div>

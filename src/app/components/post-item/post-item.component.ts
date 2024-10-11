@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { Post } from '../../models/post.model';
 
 @Component({
@@ -10,4 +11,9 @@ import { Post } from '../../models/post.model';
 })
 export class PostItemComponent {
     @Input() post: Post = new Post();
+    private router = inject(Router);
+
+    postClick() {
+        this.router.navigate(['/post/' + this.post.id]);
+    }
 }
