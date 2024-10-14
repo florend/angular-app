@@ -1,6 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { map, Observable } from 'rxjs';
+import { catchError, map, Observable, of } from 'rxjs';
 import { IPost } from '../../interfaces/post.interface';
 import { Post } from '../../models/post.model';
 
@@ -18,12 +18,20 @@ export class PostService {
     }
 
     get(id: number): Observable<Post> {
-        return this.http
-            .get<IPost>(this.BASE_URL + '/' + id)
-            .pipe(map((postDict) => Post.fromJson(postDict)));
+        const httpOptions = {
+            headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+        };
+        return this.http.get<IPost>(this.BASE_URL + '/' + id, httpOptions).pipe(
+            map((postDict) => {
+                console.log(postDict);
+                return Post.fromJson(postDict);
+            }),
+            catchError((err) => of('err', err))
+        );
     }
 
     add(post: Post): Observable<Post> {
+        console.log('adding post', post);
         return this.http
             .post<IPost>(this.BASE_URL, post.toJson())
             .pipe(map((postDict) => Post.fromJson(postDict)));
