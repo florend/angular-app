@@ -41,4 +41,8 @@ export class PostComponent implements OnInit, OnDestroy {
     ngOnDestroy(): void {
         this.routeSubscription?.unsubscribe();
     }
+
+    editPost() {
+        this.router.navigate(['/post/' + this.postId + '/edit']);
+    }
 }

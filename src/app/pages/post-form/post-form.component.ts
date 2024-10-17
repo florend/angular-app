@@ -22,6 +22,7 @@ export class PostFormComponent implements OnInit, OnDestroy {
     private routeSubscription: Subscription | null = null;
     private formValuesSubscription: Subscription | null = null;
     private saveSubscription: Subscription | null = null;
+    private deleteSubscription: Subscription | null = null;
 
     private urlRegex: RegExp =
         /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_+.~#?&/=]*)/;
@@ -48,9 +49,10 @@ export class PostFormComponent implements OnInit, OnDestroy {
                 })
             )
             .subscribe((post) => {
-                if (post) {
+                if (post && post.id) {
                     this.post = post;
                     this.formGroup.patchValue(this.post);
+                    this.post.id = post.id;
                 }
             });
     }
@@ -59,6 +61,7 @@ export class PostFormComponent implements OnInit, OnDestroy {
         this.formValuesSubscription?.unsubscribe();
         this.routeSubscription?.unsubscribe();
         this.saveSubscription?.unsubscribe();
+        this.deleteSubscription?.unsubscribe();
     }
 
     isFieldValid(name: string) {
@@ -68,7 +71,7 @@ export class PostFormComponent implements OnInit, OnDestroy {
 
     submit(event: Event) {
         event.preventDefault();
-        console.log(this.formGroup.value);
+
         let saveObservable = null;
         if (this.postId === -1) {
             saveObservable = this.postService.add(this.post);
@@ -83,5 +86,13 @@ export class PostFormComponent implements OnInit, OnDestroy {
 
     navigateBack() {
         this.router.navigate(['/']);
+    }
+
+    deletePostClick() {
+        if (this.post && this.post.id) {
+            this.deleteSubscription = this.postService.delete(this.post.id).subscribe((_) => {
+                this.navigateBack();
+            });
+        }
     }
 }

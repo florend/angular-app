@@ -1,10 +1,7 @@
-<!-- @if (postId()) {
-<p>post id : {{ postId() }}</p>
-} @else {
-<p>post only</p>
+<button (click)="navigateBack()">Home</button> post.id : {{ post.id }}
+@if (post.id && post.id != -1) {
+    <button (click)="deletePostClick()">Delete</button>
 }
-<button (click)="next()">Next</button> -->
-
 <form [formGroup]="formGroup" (submit)="submit($event)">
     <div class="form-field">
         <label for="image">Image url</label>

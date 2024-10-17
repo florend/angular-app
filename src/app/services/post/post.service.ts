@@ -1,6 +1,6 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { catchError, map, Observable, of } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { IPost } from '../../interfaces/post.interface';
 import { Post } from '../../models/post.model';
 
@@ -18,20 +18,12 @@ export class PostService {
     }
 
     get(id: number): Observable<Post> {
-        const httpOptions = {
-            headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-        };
-        return this.http.get<IPost>(this.BASE_URL + '/' + id, httpOptions).pipe(
-            map((postDict) => {
-                console.log(postDict);
-                return Post.fromJson(postDict);
-            }),
-            catchError((err) => of('err', err))
-        );
+        return this.http
+            .get<IPost>(this.BASE_URL + '/' + id)
+            .pipe(map((postDict) => Post.fromJson(postDict)));
     }
 
     add(post: Post): Observable<Post> {
-        console.log('adding post', post);
         return this.http
             .post<IPost>(this.BASE_URL, post.toJson())
             .pipe(map((postDict) => Post.fromJson(postDict)));
@@ -39,7 +31,7 @@ export class PostService {
 
     update(post: Post): Observable<Post> {
         return this.http
-            .put<IPost>(this.BASE_URL + '/' + post.id + '/', post.toJson)
+            .put<IPost>(this.BASE_URL + '/' + post.id, post.toJson())
             .pipe(map((postDict) => Post.fromJson(postDict)));
     }
 

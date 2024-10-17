@@ -3,6 +3,7 @@
         @if (post) {
             <img src="{{ post.image }}" alt="" />
             <p class="post-date">{{ post.date }}</p>
+            <button (click)="editPost()">Edit</button>
             <h2>{{ post.title }}</h2>
             <div [innerHTML]="post.body"></div>
         } @else {
