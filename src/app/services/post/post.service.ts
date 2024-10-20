@@ -38,4 +38,10 @@ export class PostService {
     delete(id: number): Observable<void> {
         return this.http.delete<void>(this.BASE_URL + '/' + id);
     }
+
+    search(keyword: string): Observable<Post[]> {
+        return this.http
+            .get<IPost[]>(this.BASE_URL + '/search?keyword=' + keyword)
+            .pipe(map((postDictArray) => postDictArray.map<Post>((postDict) => Post.fromJson(postDict))));
+    }
 }

@@ -3,22 +3,17 @@
         <div id="category">News</div>
         <h1 id="landing-title">Exciting events and announcements</h1>
     </div>
-    <app-search-bar [(search)]="search" />
+    <app-search-bar (submit)="handleSearch($event)" />
     <main>
         <div class="posts-list">
-            <!-- <app-post-item *ngFor="let post of filteredPosts()" [post]="post" /> -->
-            @for (post of filteredPosts(); track post) {
+            @for (post of searchedPosts; track post) {
                 <app-post-item [post]="post" />
             } @empty {
                 <div class="result-text">No post found</div>
             }
         </div>
-        <!-- <div *ngIf="filteredPosts().length == 0; else found" class="result-text">No post found</div>
-    <ng-template #found>
-        <div class="result-text">Found {{ filteredPosts().length }} posts</div>
-    </ng-template> -->
-        @if (filteredPosts().length > 0) {
-            <div class="result-text">Found {{ filteredPosts().length }} posts</div>
+        @if (searchedPosts.length > 0) {
+            <div class="result-text">Found {{ searchedPosts.length }} posts</div>
         }
     </main>
 </div>

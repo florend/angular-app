@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component, computed, inject, model } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
+import { Component, inject, model, OnInit } from '@angular/core';
 import { PostItemComponent } from '../../components/post-item/post-item.component';
 import { SearchBarComponent } from '../../components/search-bar/search-bar.component';
+import { Post } from '../../models/post.model';
 import { PostService } from '../../services/post/post.service';
 
 @Component({
@@ -12,17 +12,26 @@ import { PostService } from '../../services/post/post.service';
     templateUrl: './posts-list.component.html',
     styleUrl: './posts-list.component.css'
 })
-export class PostsListComponent {
+export class PostsListComponent implements OnInit {
     postService = inject(PostService);
 
-    posts = toSignal(this.postService.getAll());
+    posts: Post[] = [];
+    searchedPosts: Post[] = [];
     search = model('');
 
-    filteredPosts = computed(() => {
-        return (
-            this.posts()?.filter((post) => {
-                return post.title.toLocaleLowerCase().includes(this.search());
-            }) ?? []
-        );
-    });
+    ngOnInit(): void {
+        this.postService.getAll().subscribe((posts) => {
+            this.posts = posts;
+            this.searchedPosts = posts;
+        });
+    }
+
+    handleSearch(searchText: string) {
+        if (!searchText) {
+            this.searchedPosts = this.posts ?? [];
+        }
+        this.postService.search(searchText).subscribe((results) => {
+            this.searchedPosts = results;
+        });
+    }
 }
