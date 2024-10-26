@@ -1,0 +1,28 @@
+<div class="landing-page">
+    <div id="top-content">
+        <div id="category">News</div>
+        <h1 id="landing-title">Wow it's paginated</h1>
+    </div>
+    <app-search-bar />
+    <main>
+        @if (loading) {
+            <p>it's loading...</p>
+        } @else {
+            <div class="posts-list">
+                @for (post of postsResult.items; track post) {
+                    post id {{ post.id }}
+                    <app-post-item [post]="post" />
+                } @empty {
+                    <div class="result-text">No post found</div>
+                }
+                <app-paginator
+                    [itemsPerPage]="pageSize"
+                    [currentPage]="pageIndex + 1"
+                    [totalItems]="postsResult.totalCount"
+                    [totalPages]="postsResult.totalPages"
+                    [query]="query"
+                />
+            </div>
+        }
+    </main>
+</div>

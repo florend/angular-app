@@ -3,6 +3,7 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { PostFormComponent } from './pages/post-form/post-form.component';
 import { PostComponent } from './pages/post/post.component';
 import { PostsListComponent } from './pages/posts-list/posts-list.component';
+import { PostsPaginatedComponent } from './pages/posts-paginated/posts-paginated.component';
 
 export const routes: Routes = [
     {
@@ -30,6 +31,10 @@ export const routes: Routes = [
                 ]
             }
         ]
+    },
+    {
+        path: 'paginated',
+        component: PostsPaginatedComponent
     },
     {
         path: '**',

@@ -1,5 +1,4 @@
 <div id="search-bar">
-    <!-- <input placeholder="Search a post..." [ngModel]="search()" (ngModelChange)="updateSearch($event)" /> -->
-    <input placeholder="Search a post..." [(ngModel)]="search" />
+    <input placeholder="Search a post..." [(ngModel)]="query" (keydown.enter)="submitSearch()" />
     <button (click)="submitSearch()">-></button>
 </div>

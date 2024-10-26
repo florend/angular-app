@@ -11,11 +11,20 @@
                         routerLink="/"
                         routerLinkActive="current-page"
                         [routerLinkActiveOptions]="{ exact: true }"
-                        >Home</a
                     >
+                        Home
+                    </a>
                 </li>
                 <li><a routerLink="/post/add" routerLinkActive="current-page">Write a post</a></li>
-                <li><a href="#">Something2</a></li>
+                <li>
+                    <a
+                        routerLink="/paginated"
+                        [queryParams]="{ q: '', page: 1 }"
+                        routerLinkActive="current-page"
+                    >
+                        Paginated posts
+                    </a>
+                </li>
             </ul>
         </nav>
     </div>

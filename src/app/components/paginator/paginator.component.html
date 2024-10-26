@@ -1,0 +1,30 @@
+<nav aria-label="Page navigation example">
+    Current page : {{ currentPage }}
+    <ul class="pagination">
+        <li class="page-item">
+            <a class="page-link" [ngClass]="{ disabled: currentPage === 1 }" (click)="previousPage()">Prev</a>
+        </li>
+
+        @for (page of pages; track page) {
+            <li class="page-item">
+                @if (page > 0) {
+                    <a
+                        class="page-link"
+                        [ngClass]="{ active: currentPage === page }"
+                        (click)="goToPage(page)"
+                    >
+                        {{ page }}
+                    </a>
+                }
+                @if (page === 0) {
+                    ...
+                }
+            </li>
+        }
+        <li class="page-item">
+            <a class="page-link" [ngClass]="{ disabled: currentPage === totalPages }" (click)="nextPage()">
+                Next
+            </a>
+        </li>
+    </ul>
+</nav>

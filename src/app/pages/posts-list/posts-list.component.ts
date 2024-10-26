@@ -13,7 +13,7 @@ import { PostService } from '../../services/post/post.service';
     styleUrl: './posts-list.component.css'
 })
 export class PostsListComponent implements OnInit {
-    postService = inject(PostService);
+    private postService = inject(PostService);
 
     posts: Post[] = [];
     searchedPosts: Post[] = [];
@@ -26,11 +26,11 @@ export class PostsListComponent implements OnInit {
         });
     }
 
-    handleSearch(searchText: string) {
-        if (!searchText) {
+    handleSearch(query: string) {
+        if (!query) {
             this.searchedPosts = this.posts ?? [];
         }
-        this.postService.search(searchText).subscribe((results) => {
+        this.postService.search(query).subscribe((results) => {
             this.searchedPosts = results;
         });
     }
