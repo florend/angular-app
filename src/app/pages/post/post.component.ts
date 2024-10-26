@@ -19,6 +19,7 @@ export class PostComponent implements OnInit, OnDestroy {
 
     postId = -1;
     post: Post | null = null;
+    loading: boolean = true;
 
     ngOnInit(): void {
         this.routeSubscription = this.route.params
@@ -35,6 +36,7 @@ export class PostComponent implements OnInit, OnDestroy {
                 if (post) {
                     this.post = post;
                 }
+                this.loading = false;
             });
     }
 
