@@ -1,4 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+
+@layer general-styling {
+    :root {
+        --clr-success: hsl(143, 100%, 26%);
+        --clr-warning: hsl(43, 100%, 66%);
+        --clr-error: hsl(348, 55%, 49%);
+    }
+}
+
 body,
 html {
     margin: 0;

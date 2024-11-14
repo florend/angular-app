@@ -15,7 +15,6 @@ export class Post implements IPost {
         const postJson: IPost = Object.assign({}, this);
         delete postJson.id;
         // postJson.body = encodeURIComponent(this.body);
-        // console.log(postJson);
         return postJson;
     }
 }

@@ -25,8 +25,18 @@
                         Paginated posts
                     </a>
                 </li>
+                @if (loginService.user()) {
+                    <li>
+                        <a (click)="logout()">Logout</a>
+                    </li>
+                } @else {
+                    <li><a routerLink="/login" routerLinkActive="current-page">Login</a></li>
+                }
             </ul>
         </nav>
     </div>
 </header>
+@if (loginService.user()) {
+    <p>Welcome {{ loginService.user()?.username }}</p>
+}
 <router-outlet></router-outlet>

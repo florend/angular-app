@@ -1,4 +1,6 @@
 import { Routes } from '@angular/router';
+import { isAuthenticatedGuard } from './guards/is-authenticated.guard';
+import { LoginComponent } from './pages/login/login.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { PostFormComponent } from './pages/post-form/post-form.component';
 import { PostComponent } from './pages/post/post.component';
@@ -11,7 +13,12 @@ export const routes: Routes = [
         component: PostsListComponent
     },
     {
+        path: 'login',
+        component: LoginComponent
+    },
+    {
         path: 'post',
+        canActivate: [isAuthenticatedGuard],
         children: [
             {
                 path: 'add',

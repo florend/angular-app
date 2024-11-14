@@ -1,0 +1,57 @@
+form {
+    display: grid;
+    gap: 0.75rem;
+    max-width: 30ch;
+    margin: 2rem auto;
+}
+
+.form-group {
+    display: grid;
+    gap: 0.25rem;
+}
+
+label {
+    font-size: 0.75rem;
+}
+
+input,
+button {
+    font: inherit;
+}
+
+input {
+    padding: 0.5rem;
+    /* border-radius: 0.25rem; */
+    border: 0;
+    background-color: rgb(232, 232, 232);
+}
+
+input:not(:placeholder-shown):valid {
+    outline-color: var(--clr-success);
+}
+
+input:not(:placeholder-shown):invalid {
+    outline-color: var(--clr-error);
+}
+
+input:focus:invalid {
+    outline-color: var(--clr-warning);
+}
+
+button {
+    border: none;
+    padding: 5px;
+    background-color: rgb(32, 32, 32);
+    color: white;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+button:hover {
+    background-color: rgb(179, 179, 255);
+}
+
+.error {
+    font-size: x-small;
+    color: red;
+}
