@@ -16,7 +16,13 @@ export class AppComponent implements OnInit, OnDestroy {
     private currentUserSubscription: Subscription | null = null;
 
     ngOnInit(): void {
-        this.currentUserSubscription = this.loginService.getCurrentUser().subscribe();
+        this.currentUserSubscription = this.loginService.getCurrentUser().subscribe({
+            next: () => {
+                if (this.router.url === '/login' || this.router.url === '/register') {
+                    this.router.navigate(['/']);
+                }
+            }
+        });
     }
     ngOnDestroy(): void {
         this.currentUserSubscription?.unsubscribe();

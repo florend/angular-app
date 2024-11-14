@@ -4,9 +4,9 @@ import { map, Observable, of, tap } from 'rxjs';
 import { User } from '../../models/user.model';
 
 export interface RegisterDTO {
-    id: string;
     username: string;
     email: string;
+    password: string;
 }
 
 export interface Credentials {
@@ -23,10 +23,8 @@ export class LoginService {
 
     user = signal<User | null | undefined>(undefined);
 
-    constructor() {}
-
     register(registerDto: RegisterDTO): Observable<string> {
-        return this.http.post(this.BASE_URL + 'register', registerDto).pipe(
+        return this.http.post(this.BASE_URL + 'register', registerDto, { responseType: 'text' }).pipe(
             map((result: any) => {
                 return result;
             })
