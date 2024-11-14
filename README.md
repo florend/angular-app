@@ -1,27 +1,30 @@
 # AngularApp
 
+To be used in conjunction with my [backend project](https://github.com/florend/restapi) made with Springboot.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.7.
 
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## What's on the menu?
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+If I didn't break anything, you should find :
 
-## Build
+-   A home page `/` that displays all posts, a search bar.
+-   A page with the same posts but paginated and a search bar that work with it `/paginated`
+-   A post page `/post/{id}`
+-   Write a post `/post/add`
+-   Edit a post `/post/{id}/edit`
+-   Delete a post `/post/{id}/edit`
+-   A login page `/login`
+-   A guard that protects `/post` pages, you need to be authenticated
+-   An interceptor that adds a Json Web Token to requests
+-   What about styling ? I didn't put much time on it since it's just a demo, I prefer working on features for the moment.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Not implemented
 
-## Running unit tests
+-   A register page
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+To be continued...
