@@ -19,12 +19,9 @@ If I didn't break anything, you should find :
 -   Edit a post `/post/{id}/edit`
 -   Delete a post `/post/{id}/edit`
 -   A login page `/login`
+-   A register page `/register`
 -   A guard that protects `/post` pages, you need to be authenticated
 -   An interceptor that adds a Json Web Token to requests
 -   What about styling ? I didn't put much time on it since it's just a demo, I prefer working on features for the moment.
-
-## Not implemented
-
--   A register page
 
 To be continued...
