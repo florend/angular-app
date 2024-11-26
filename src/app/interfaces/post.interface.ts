@@ -1,3 +1,5 @@
+import { ICategory } from './category.interface';
+
 export interface IPost {
     id?: number;
 
@@ -5,4 +7,6 @@ export interface IPost {
     title: string;
     body: string;
     date: Date;
+
+    category: ICategory;
 }
