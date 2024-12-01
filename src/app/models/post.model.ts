@@ -1,5 +1,5 @@
-import { ICategory } from '../interfaces/category.interface';
 import { IPost } from '../interfaces/post.interface';
+import { Category } from './category.model';
 
 export class Post implements IPost {
     id?: number;
@@ -7,10 +7,7 @@ export class Post implements IPost {
     title: string = 'Expanding to new markets';
     body: string = 'Some texts';
     date: Date = new Date();
-    category: ICategory = {
-        id: 0,
-        name: 'unknown'
-    };
+    category: Category = new Category();
 
     static fromJson(postJson: IPost): Post {
         return Object.assign(new Post(), postJson);

@@ -47,7 +47,6 @@ export class PostsPaginatedComponent implements OnInit, OnDestroy {
         this.loading = true;
         this.postService.getPaginated(this.query, this.pageIndex, this.pageSize).subscribe({
             next: (result) => {
-                console.log(result);
                 this.postsResult = result;
                 if (this.pageIndex + 1 > result.totalPages) {
                     this.router.navigate([location.pathname], {

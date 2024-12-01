@@ -1,4 +1,4 @@
-import { ICategory } from './category.interface';
+import { Category } from '../models/category.model';
 
 export interface IPost {
     id?: number;
@@ -8,5 +8,5 @@ export interface IPost {
     body: string;
     date: Date;
 
-    category: ICategory;
+    category: Category;
 }

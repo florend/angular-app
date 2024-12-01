@@ -1,4 +1,4 @@
-<button (click)="navigateBack()">Home</button> post.id : {{ post.id }}
+post.id : {{ post.id }}
 @if (post.id && post.id != -1) {
     <button (click)="deletePostClick()">Delete</button>
 }
@@ -6,7 +6,7 @@
     <div class="form-field">
         <label for="image">Image url</label>
         <input id="image" name="image" type="text" formControlName="image" />
-        @if (isFieldValid('image')) {
+        @if (isFieldInvalid('image')) {
             @if (formGroup.get('image')?.hasError('required')) {
                 <div class="error">This field is required.</div>
             }
@@ -14,9 +14,16 @@
                 <div class="error">This field must be an url</div>
             }
         }
+        <label for="category">Category</label>
+        <select formControlName="category">
+            <option [value]="'NaN'" disabled>Select category</option>
+            @for (category of categories; track category) {
+                <option [value]="category.id">{{ category.name }}</option>
+            }
+        </select>
         <label for="title">Title</label>
         <input id="title" name="title" type="text" formControlName="title" />
-        @if (isFieldValid('title')) {
+        @if (isFieldInvalid('title')) {
             @if (formGroup.get('title')?.hasError('required')) {
                 <div class="error">This field is required.</div>
             }
@@ -26,7 +33,7 @@
         }
         <label for="body">Body</label>
         <textarea id="body" name="body" type="text" formControlName="body"></textarea>
-        @if (isFieldValid('body')) {
+        @if (isFieldInvalid('body')) {
             @if (formGroup.get('body')?.hasError('required')) {
                 <div class="error">This field is required.</div>
             }
@@ -35,5 +42,5 @@
             }
         }
     </div>
-    <button type="submit" [disabled]="formGroup.invalid">Save</button>
+    <button type="submit" [disabled]="formGroup.invalid || !formGroup.get('category')?.value">Save</button>
 </form>
