@@ -41,7 +41,8 @@ export class PostFormComponent implements OnInit, OnDestroy {
 
     ngOnInit(): void {
         this.formValuesSubscription = this.formGroup.valueChanges.subscribe((data) => {
-            this.post = Object.assign(this.post, data);
+            const category = this.categories.find((category) => category.id === data.category);
+            if (category) this.post = Object.assign(this.post, data, { category });
         });
 
         this.routeSubscription = combineLatest([
