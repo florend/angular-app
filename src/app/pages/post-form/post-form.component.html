@@ -18,7 +18,7 @@ post.id : {{ post.id }}
         <select formControlName="category">
             <option [value]="'NaN'" disabled>Select category</option>
             @for (category of categories; track category) {
-                <option [value]="category.id">{{ category.name }}</option>
+                <option [ngValue]="category.id">{{ category.name }}</option>
             }
         </select>
         <label for="title">Title</label>
