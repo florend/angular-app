@@ -1,0 +1,9 @@
+<div
+    [@toastTrigger]="(toastService.toastVisible$ | async) ? 'open' : 'close'"
+    [class]="toastService.toastState$ | async"
+>
+    <div class="msg-container">
+        {{ toastService.toastMessage$ | async }}
+    </div>
+    <a class="dismiss-btn" (click)="dismiss()"><small>Dismiss</small></a>
+</div>

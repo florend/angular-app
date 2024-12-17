@@ -1,0 +1,50 @@
+.toast-class,
+.success-toast,
+.warning-toast,
+.info-toast,
+.error-toast {
+    position: fixed;
+    bottom: -130px;
+    right: 0;
+    margin: 2rem;
+    display: inline-flex;
+    min-width: 15rem;
+    height: 4rem;
+    border: 1px solid black;
+    background-color: white;
+
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1.5rem;
+    font-size: 0.9rem;
+}
+
+.success-toast {
+    border: 1px solid var(--clr-success);
+    background-color: var(--clr-success-light);
+}
+
+.warning-toast {
+    border: 1px solid var(--clr-warning);
+    background-color: var(--clr-warning-light);
+}
+
+.info-toast {
+    border: 1px solid var(--clr-info);
+    background-color: var(--clr-info-light);
+}
+
+.error-toast {
+    border: 1px solid var(--clr-error);
+    background-color: var(--clr-error-light);
+}
+
+.msg-container {
+    max-width: 250px;
+}
+
+.dismiss-btn {
+    padding-left: 1rem;
+    cursor: pointer;
+}

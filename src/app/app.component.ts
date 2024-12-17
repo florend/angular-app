@@ -1,12 +1,13 @@
 import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { ToastComponent } from './components/toast/toast.component';
 import { LoginService } from './services/login/login.service';
 
 @Component({
     selector: 'app-root',
     standalone: true,
-    imports: [RouterOutlet, RouterLink, RouterLinkActive],
+    imports: [RouterOutlet, RouterLink, RouterLinkActive, ToastComponent],
     templateUrl: './app.component.html',
     styleUrl: './app.component.css'
 })

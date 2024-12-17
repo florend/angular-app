@@ -2,10 +2,27 @@
 
 @layer general-styling {
     :root {
-        --clr-success: hsl(143, 100%, 26%);
-        --clr-warning: hsl(43, 100%, 66%);
-        --clr-error: hsl(348, 55%, 49%);
+        --clr-success: #61c9a8;
+        --clr-success-light: #eff9f6;
+
+        --clr-warning: #ed9b40;
+        --clr-warning-light: #fdf5ec;
+
+        --clr-info: #40a2ed;
+        --clr-info-light: #ecf6fd;
+
+        --clr-error: #d64550;
+        --clr-error-light: #fbeced;
     }
+}
+
+app-root {
+    z-index: 1;
+}
+
+app-toast,
+.toast-class {
+    z-index: 2;
 }
 
 body,

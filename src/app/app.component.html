@@ -36,6 +36,7 @@
         </nav>
     </div>
 </header>
+<app-toast></app-toast>
 @if (loginService.user()) {
     <p>Welcome {{ loginService.user()?.username }}</p>
 }
